@@ -1,0 +1,8 @@
+before_script:
+  - pwd
+  - ls
+
+something:
+  script:
+    - cd /
+    - ls
