@@ -19,9 +19,9 @@ build_dist:
     - ember build production
 
 update_gh_pages:
-   environment:
+  environment:
     name: github-pages
-    url: http://jhr007.github.io/rainbow-code-generator
+    url: "http://jhr007.github.io/rainbow-code-generator"
   script:
     - cd dist
     - git init
