@@ -10,7 +10,7 @@ cache:
     - "~/node_mdules"
 
 before_script:
-  - git remote add -f $GITHUB_UPSTREAM $GITHUB_URL &>/dev/null
+  - git remote add -f $GITHUB_UPSTREAM $GITHUB_URL || /bin/true
 
 push_upstream_github:
   script:
