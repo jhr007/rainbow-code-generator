@@ -9,7 +9,7 @@ cache:
     - dist
     - /usr/local/lib/node_modules
 
-setup_git:
+before_script:
   script:
     - git remote add -f $GITHUB_UPSTREAM $GITHUB_URL || /bin/true
     - git config user.email "GitLabCI"
@@ -17,12 +17,11 @@ setup_git:
 
 push_upstream_github:
   script:
-    - env
-    - git push $GITHUB_UPSTREAM master
+    - git push -f $GITHUB_UPSTREAM master
 
 build_dist:
   script:
-    - npm install -g ember-cli
+    - "[[ -f `which ember` ]] || npm install -g ember-cli"
     - npm install
     - ember build production
 
@@ -33,6 +32,7 @@ update_gh_pages:
   script:
     - cd dist
     - git init
+    - git remote add -f $GITHUB_UPSTREAM $GITHUB_URL || /bin/true
     - git checkout --orphan gh-pages
     - git add -f .
     - git commit -m'Github pages'
