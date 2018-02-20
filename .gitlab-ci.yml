@@ -32,6 +32,8 @@ update_gh_pages:
     - cd dist
     - git init
     - git remote add -f $GITHUB_UPSTREAM $GITHUB_URL || /bin/true
+    - git config user.email "GitLabCI"
+    - git config user.name "GitLabCI"
     - git checkout --orphan gh-pages
     - git add -f .
     - git commit -m'Github pages'
