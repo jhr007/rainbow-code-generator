@@ -10,10 +10,9 @@ cache:
     - /usr/local/lib/node_modules
 
 before_script:
-  script:
-    - git remote add -f $GITHUB_UPSTREAM $GITHUB_URL || /bin/true
-    - git config user.email "GitLabCI"
-    - git config user.name "GitLabCI"
+  - git remote add -f $GITHUB_UPSTREAM $GITHUB_URL || /bin/true
+  - git config user.email "GitLabCI"
+  - git config user.name "GitLabCI"
 
 push_upstream_github:
   script:
