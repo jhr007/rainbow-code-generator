@@ -6,8 +6,8 @@ variables:
 
 cache:
   paths:
-    - node_mdules
-    - "~/node_mdules"
+    - dist
+    - /usr/local/lib/node_modules
 
 before_script:
   - git remote add -f $GITHUB_UPSTREAM $GITHUB_URL || /bin/true
