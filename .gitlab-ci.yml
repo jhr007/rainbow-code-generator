@@ -1,8 +1,9 @@
 image: node:8.9-slim
 
 cache:
-  - node_mdules
-  - "~/node_mdules"
+  paths:
+    - node_mdules
+    - "~/node_mdules"
 
 # before_script:
 push_upstream_github:
