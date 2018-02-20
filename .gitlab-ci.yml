@@ -10,7 +10,7 @@ push_upstream_github:
   script:
     - git checkout master
     - git remote add web_upstream "https://$SECRET_GITHUB_DEPLOY_TOKEN@github.com/jhr007/rainbow-code-generator"
-    - git remote push web_upstream master
+    - git push web_upstream master
 
 build_dist:
   script:
