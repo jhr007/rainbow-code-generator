@@ -9,8 +9,9 @@ cache:
     - dist
     - /usr/local/lib/node_modules
 
-before_script:
-  - git remote add -f $GITHUB_UPSTREAM $GITHUB_URL || /bin/true
+setup_git:
+  script:
+    - git remote add -f $GITHUB_UPSTREAM $GITHUB_URL || /bin/true
 
 push_upstream_github:
   script:
@@ -33,5 +34,5 @@ update_gh_pages:
     - git init
     - git checkout --orphan gh-pages
     - git add -f .
-    - git commit -m'Github pages'
+    - git commit -m'Github pages' --author=GitlabCI
     - git push $GITHUB_UPSTREAM gh-pages
