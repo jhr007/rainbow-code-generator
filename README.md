@@ -1,7 +1,12 @@
-# rainbow-code-generator
+# Rainbow Code Generator
 
-This README outlines the details of collaborating on this Ember application.
-A short introduction of this app could easily go here.
+Quick project I made because I couldn't find a random generator for [rainbow codes](https://en.wikipedia.org/wiki/List_of_Rainbow_Codes)
+
+[Rainbow Code Generator](https://jhr007.github.io/rainbow-code-generator/)
+
+Look for the list of colors/codes in `/app/routes/index.js`
+
+*If you want to run it yourself, Ember CLI boilerplate begins now...*
 
 ## Prerequisites
 
