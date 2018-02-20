@@ -1,8 +1,13 @@
-before_script:
-  - pwd
-  - ls
+image: node:8.9-slim
 
-something:
+before_script:
+  - npm install -g ember
+
+build_dist:
   script:
-    - cd /
-    - ls
+    - ember build production
+
+update_gh_pages:
+  script:
+    - cd dist
+#    - checkout --orphan gh-pages
