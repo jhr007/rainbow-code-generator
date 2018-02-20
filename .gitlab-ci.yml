@@ -1,13 +1,31 @@
 image: node:8.9-slim
 
-before_script:
-  - npm install -g ember
+cache:
+  - node_mdules
+  - "~/node_mdules"
+
+# before_script:
+push_upstream_github:
+  script:
+    - git checkout master
+    - git remote add web_upstream "https://$SECRET_GITHUB_DEPLOY_TOKEN@github.com/jhr007/rainbow-code-generator"
+    - git remote push web_upstream master
 
 build_dist:
   script:
+    - npm install -g ember-cli
+    - npm install
     - ember build production
 
 update_gh_pages:
+   environment:
+    name: github-pages
+    url: http://jhr007.github.io/rainbow-code-generator
   script:
     - cd dist
-#    - checkout --orphan gh-pages
+    - git init
+    - git remote add gh-upstream "https://$SECRET_GITHUB_DEPLOY_TOKEN@github.com/jhr007/rainbow-code-generator"
+    - git checkout --orphan gh-pages
+    - git add -f .
+    - git commit -m'Github pages'
+    - git push gh-upstream gh-pages
