@@ -37,4 +37,4 @@ update_gh_pages:
     - git checkout --orphan gh-pages
     - git add -f .
     - git commit -m'Github pages'
-    - git push $GITHUB_UPSTREAM gh-pages
+    - git push -f $GITHUB_UPSTREAM gh-pages
