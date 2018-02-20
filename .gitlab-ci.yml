@@ -1,16 +1,22 @@
 image: node:8.9
 
+variables:
+  GITHUB_UPSTREAM: web_upstream
+  GITHUB_URL: "https://$SECRET_GITHUB_DEPLOY_TOKEN@github.com/jhr007/rainbow-code-generator"
+
 cache:
   paths:
     - node_mdules
     - "~/node_mdules"
 
-# before_script:
+before_script:
+  - git remote add -f $GITHUB_UPSTREAM $GITHUB_URL
+
 push_upstream_github:
   script:
+    - env
     - git checkout master
-    - git remote add web_upstream "https://$SECRET_GITHUB_DEPLOY_TOKEN@github.com/jhr007/rainbow-code-generator"
-    - git push web_upstream master
+    - git push $GITHUB_UPSTREAM master
 
 build_dist:
   script:
@@ -25,8 +31,7 @@ update_gh_pages:
   script:
     - cd dist
     - git init
-    - git remote add gh-upstream "https://$SECRET_GITHUB_DEPLOY_TOKEN@github.com/jhr007/rainbow-code-generator"
     - git checkout --orphan gh-pages
     - git add -f .
     - git commit -m'Github pages'
-    - git push gh-upstream gh-pages
+    - git push $GITHUB_UPSTREAM gh-pages
