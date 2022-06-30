@@ -29,7 +29,6 @@ export default Route.extend({
         "apricot",
         "archer",
         "arrow",
-        "arrows",
         "aster",
         "badger",
         "bamboo",
