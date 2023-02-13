@@ -31,7 +31,7 @@ export default Route.extend({
         "olive",
 				"orange",
         "peach",
-        "periwinle",
+        "periwinkle",
 				"pink",
         "plum",
 				"purple",
